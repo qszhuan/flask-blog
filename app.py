@@ -6,11 +6,10 @@ from flask import render_template
 from flask import Markup
 
 app = Flask(__name__)
+from flask.ext.babel import Babel
+babel = Babel(app)
 
-
-@app.route('/')
-def index():
-    content = u"""This is an H1
+sample = u"""This is an H1
 =============
 This is an H2
 -------------
@@ -124,11 +123,20 @@ un*frigging*believable
 
 Use the `printf()` function.
 """
-    content = Markup(markdown.markdown(content))
+
+@app.route('/about')
+def about():
+    content = Markup(markdown.markdown(sample))
+    return render_template('about.html', **locals())
+
+@app.route('/')
+def index():
+
+    content = Markup(markdown.markdown(sample))
     return render_template('index.html', **locals())
 
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)

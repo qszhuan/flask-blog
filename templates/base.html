@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <script src="/static/js/moment.min.js"></script>
+    <script src="/static/js/jquery-1.9.1.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/layout.css" rel="stylesheet">
+
+    <title>{{ _("Qingshan's Blog") }}</title>
+</head>
+
+<body>
+{% include 'nav_header.html' %}
+<div class="container-fluid">
+    <div class="row-fluid">
+{#        {% include 'side_bar.html' %}#}
+        {% block sidebar %}{% endblock sidebar %}
+        {% block blog_content %}{% endblock blog_content %}
+    </div>
+    {% include 'footer.html' %}
+</div>
+</body>
+</html>

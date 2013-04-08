@@ -128,9 +128,9 @@ sup {
     vertical-align: super;
     line-height: 0;
 }
-* {
-    -webkit-print-color-adjust: exact;
-}
+/** {*/
+    /*-webkit-print-color-adjust: exact;*/
+/*}*/
 @media screen and (min-width: 914px) {
     body {
         width: 854px;
