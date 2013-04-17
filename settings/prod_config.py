@@ -6,7 +6,7 @@ CSRF_ENABLED = True
 SECRET_KEY = 'development secret key'
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-basedir = os.path.abspath('..')
+# basedir = os.path.abspath('..')
 
 #database settings
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')

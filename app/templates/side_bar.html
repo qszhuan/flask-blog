@@ -1,25 +1,25 @@
-<div class="span2">
+<div class="span3">
     <div class="well sidebar-nav">
         <ul class="nav nav-list">
             <li class="nav-header">Recent Posts</li>
-            <li class="active"><a href="#">Post 1</a></li>
-            <li><a href="#">Post 2</a></li>
-            <li><a href="#">Post 3</a></li>
+            {% for post in recent_posts %}
+                <li><a href="#">{{ post.title }}</a></li>
+            {% endfor %}
 
             <li class="nav-header">Categories</li>
-            <li><a href="#">Python</a></li>
-            <li><a href="#">iOS</a></li>
-            <li><a href="#">.NET</a></li>
+            {% for category in categories %}
+                <li><a href="#">{{ category.name }} ({{ category.posts | length }})</a></li>
+            {% endfor %}
 
             <li class="nav-header">Tags</li>
-            <li><a href="#">Link1</a></li>
-            <li><a href="#">Link2</a></li>
-            <li><a href="#">Link3</a></li>
+            {% for tag in tags %}
+                <li><a href="#">{{ tag.name }} ({{ tag.posts | length }})</a></li>
+            {% endfor %}
 
             <li class="nav-header">Archives</li>
-            <li><a href="#">March 2009</a></li>
-            <li><a href="#">March 2009</a></li>
-            <li><a href="#">March 2009</a></li>
+            {% for archive in archives %}
+                <li><a href="#">{{ archive[0] }}  ({{ archive[1] }})</a></li>
+            {% endfor %}
         </ul>
 
     </div>

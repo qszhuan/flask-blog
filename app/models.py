@@ -38,8 +38,8 @@ class Post(db.Model):
     publish_date = db.Column(db.DateTime)
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
-    category = db.relationship('Category', backref=db.backref('posts', lazy='dynamic'))
-    tags = db.relationship('Tag', secondary=tags, backref=db.backref('posts', lazy='dynamic'))
+    category = db.relationship('Category', backref=db.backref('posts'))
+    tags = db.relationship('Tag', secondary=tags, backref=db.backref('posts'))
 
     def __init__(self, title, body, category, tags, publish_date=None):
         self.title = title

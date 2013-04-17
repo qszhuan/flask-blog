@@ -2,10 +2,12 @@
 import codecs
 
 import os
-from flask import render_template
+from flask import render_template, Session
 from jinja2 import Markup
 import markdown
-from app import app
+from sqlalchemy import func
+from app import app, db
+from app.models import Post, Category, Tag
 
 sample = u"""
 > 给出一些例子代码：
@@ -33,5 +35,10 @@ def about():
 
 @app.route('/')
 def index():
+    categories = Category.query.all()
+    tags = Tag.query.all()
+    func_strftime = func.strftime("%m-%Y", Post.publish_date)
+    archives = db.session.query(func_strftime, func.count(Post.id)).group_by(func_strftime).all()
+    recent_posts = Post.query.order_by(Post.publish_date.desc()).all()
     content = Markup(markdown.markdown(sample))
     return render_template('index.html', **locals())
