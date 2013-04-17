@@ -17,17 +17,17 @@ body {
     background-color: white;
     margin: 10px 13px 10px 13px;
 }
-table {
-    margin: 10px 0 15px 0;
-    border-collapse: collapse;
-}
-td,th {
-    border: 1px solid #ddd;
-    padding: 3px 10px;
-}
-th {
-    padding: 5px 10px;
-}
+/*table {*/
+    /*margin: 10px 0 15px 0;*/
+    /*border-collapse: collapse;*/
+/*}*/
+/*td,th {*/
+    /*border: 1px solid #ddd;*/
+    /*padding: 3px 10px;*/
+/*}*/
+/*th {*/
+    /*padding: 5px 10px;*/
+/*}*/
 
 a {
     color: #0069d6;
@@ -141,7 +141,7 @@ sup {
     body,code,pre code,h1,h2,h3,h4,h5,h6 {
         color: black;
     }
-    table, pre {
-        page-break-inside: avoid;
-    }
+    /*table, pre {*/
+        /*page-break-inside: avoid;*/
+    /*}*/
 }
