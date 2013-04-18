@@ -34,7 +34,7 @@ class Category(db.Model):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(256))
-    body = db.Column(db.Text)
+    body = db.Column(db.Text(1024))
     publish_date = db.Column(db.DateTime)
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 

@@ -6,54 +6,9 @@
 
 {% block blog_content %}
     <div class="span9">
-        <table class="table table-bordered table-hover">
-            <tbody>
-            <tr class="row-fluid">
-                <td>
-                    <h3>Baseline Pattern, Coaching Pattern Series</h3>
+    {%  for post in recent_posts %}
+        {% include 'post_quickview.html' %}
+        {% endfor %}
 
-                    <span class="label label-info">Python</span>
-                    <span class="">Tags:</span>
-                    <span class="label label-inverse">flask</span>
-                    <span class="label label-inverse">design pattern</span>
-                    <span class="label label-inverse">python</span>
-                    <span class="label label-inverse">web framework</span>
-                    <span class="muted pull-right">posted 3 days ago</span>
-
-{#                    <hr>#}
-                    {{ content }}
-                    <button class="btn-link">Read more...</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <tbody>
-            <tr class="row-fluid">
-                <td>
-                    <h3>Baseline Pattern, Coaching Pattern Series</h3>
-                    <span class="label label-inverse">Python</span>
-                    <span class="label label-inverse">flask</span>
-                    <span class="muted pull-right">posted 3 days ago</span>
-                    <hr>
-                    {{ content }}
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <table class="table table-bordered">
-            <tbody>
-            <tr class="row-fluid">
-                <td>
-                    <h3>Baseline Pattern, Coaching Pattern Series</h3>
-                    <span class="label label-inverse">Python</span>
-                    <span class="label label-inverse">flask</span>
-                    <span class="muted pull-right">posted 3 days ago</span>
-                    <hr>
-                    {{ content }}
-                </td>
-            </tr>
-            </tbody>
-        </table>
     </div>
 {% endblock blog_content %}

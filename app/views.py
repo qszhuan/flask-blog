@@ -39,6 +39,6 @@ def index():
     tags = Tag.query.all()
     func_strftime = func.strftime("%m-%Y", Post.publish_date)
     archives = db.session.query(func_strftime, func.count(Post.id)).group_by(func_strftime).all()
-    recent_posts = Post.query.order_by(Post.publish_date.desc()).all()
+    recent_posts = Post.query.order_by(Post.publish_date.desc()).limit(5)
     content = Markup(markdown.markdown(sample))
     return render_template('index.html', **locals())

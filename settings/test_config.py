@@ -11,7 +11,8 @@ SECRET_KEY = 'test secret key'
 basedir = os.path.abspath('..')
 
 #database settings
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'test.db')
+DATABASE_PATH = os.path.abspath(os.path.join(basedir, os.pardir))
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(DATABASE_PATH, 'test.db')
 
 # mail server settings
 MAIL_SERVER = 'smtp.gmail.com'
