@@ -1,14 +1,8 @@
 {% extends 'base.html' %}
 
-{% block sidebar %}
-    {% include 'side_bar.html' %}
-{% endblock sidebar %}
-
 {% block blog_content %}
-    <div class="span10">
-    {%  for post in recent_posts %}
+    {% for post in recent_posts %}
         {% include 'post_quickview.html' %}
-        {% endfor %}
+    {% endfor %}
 
-    </div>
 {% endblock blog_content %}

@@ -16,9 +16,15 @@
 {% include 'nav_header.html' %}
 <div class="container-fluid">
     <div class="row-fluid">
-{#        {% include 'side_bar.html' %}#}
-        {% block sidebar %}{% endblock sidebar %}
+    <div class="span9">
         {% block blog_content %}{% endblock blog_content %}
+    </div>
+    <div class="span3">
+        {% block sidebar %}
+        {% include 'side_bar.html' %}
+        {% endblock sidebar %}
+    </div>
+
     </div>
     {% include 'footer.html' %}
 </div>

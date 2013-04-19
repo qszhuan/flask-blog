@@ -8,29 +8,22 @@ import markdown
 from sqlalchemy import func
 from app import app, db
 from app.models import Post, Category, Tag
+from hashlib import md5
 
-sample = u"""
-> 给出一些例子代码：
->
->     return shell_exec("echo $input | $markdown_script");
-*   Red
-*   Green
-*   Blue
-[id]: http://example.com/  "Optional Title Here"
-[a]: http://www.baidu.com 'fdsf'
 
-Use the `printf()` function.
-"""
+def avatar():
+    return 'http://www.gravatar.com/avatar/' + "aecf6efff2be54fdf7f8c7373acf0b5a" + '?d=mm&s=' + str(280)
 
 
 @app.route('/about')
 def about():
+    me = avatar()
     template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
     about_file = os.path.join(template_dir, 'about.md')
     with codecs.open(about_file, mode='r', encoding='utf-8') as f:
         text = f.read()
         content = Markup(markdown.markdown(text))
-        return render_template('about.html', content=content)
+        return render_template('about.html', content=content, me=me)
 
 
 @app.route('/')
