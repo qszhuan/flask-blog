@@ -1,0 +1,17 @@
+<table class="table table-bordered table-hover">
+    <tbody>
+    <tr class="row-fluid">
+        <td>
+            <h4>{{ post.title | title }}</h4>
+            <span class="label label-info well-small">{{ post.category.name }}</span>
+            {% for tag in post.tags %}
+                <span class="label label-inverse">{{ tag.name }}</span>
+            {% endfor %}
+            <span class="muted pull-right">posted {{ post.publish_date }}</span>
+            <div style="padding-top: 10px">
+                {{ post.body | markup }}
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>

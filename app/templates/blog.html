@@ -6,9 +6,6 @@
 
 {% block blog_content %}
     <div class="span10">
-    {%  for post in recent_posts %}
-        {% include 'post_quickview.html' %}
-        {% endfor %}
-
+        {% include 'post.html' %}
     </div>
 {% endblock blog_content %}

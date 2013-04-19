@@ -40,5 +40,37 @@ def index():
     func_strftime = func.strftime("%m-%Y", Post.publish_date)
     archives = db.session.query(func_strftime, func.count(Post.id)).group_by(func_strftime).all()
     recent_posts = Post.query.order_by(Post.publish_date.desc()).limit(5)
-    content = Markup(markdown.markdown(sample))
     return render_template('index.html', **locals())
+
+
+@app.route('/blog/<blog_title>')
+def blog(blog_title):
+    categories = Category.query.all()
+    tags = Tag.query.all()
+    func_strftime = func.strftime("%m-%Y", Post.publish_date)
+    archives = db.session.query(func_strftime, func.count(Post.id)).group_by(func_strftime).all()
+    recent_posts = Post.query.order_by(Post.publish_date.desc()).limit(5)
+    post = Post.query.filter(Post.title == blog_title).first()
+    return render_template('blog.html', **locals())
+
+
+@app.route('/category/<category_name>')
+def category(category_name):
+    categories = Category.query.all()
+    tags = Tag.query.all()
+    func_strftime = func.strftime("%m-%Y", Post.publish_date)
+    archives = db.session.query(func_strftime, func.count(Post.id)).group_by(func_strftime).all()
+    recent_posts = Post.query.order_by(Post.publish_date.desc()).limit(5)
+    posts = Category.query.filter(Category.name == category_name).first().posts
+    return render_template('category.html', **locals())
+
+
+@app.route('/tag/<tag_name>')
+def tag(tag_name):
+    categories = Category.query.all()
+    tags = Tag.query.all()
+    func_strftime = func.strftime("%m-%Y", Post.publish_date)
+    archives = db.session.query(func_strftime, func.count(Post.id)).group_by(func_strftime).all()
+    recent_posts = Post.query.order_by(Post.publish_date.desc()).limit(5)
+    posts = Tag.query.filter(Tag.name == tag_name).first().posts
+    return render_template('category.html', **locals())

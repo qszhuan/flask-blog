@@ -6,8 +6,8 @@
 
 {% block blog_content %}
     <div class="span10">
-    {%  for post in recent_posts %}
-        {% include 'post_quickview.html' %}
+        {%  for post in posts %}
+            {% include 'post.html' %}
         {% endfor %}
 
     </div>
