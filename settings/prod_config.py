@@ -21,3 +21,7 @@ MAIL_USE_TLS = True
 # blog settings
 BLOG_PATH = os.path.abspath(os.path.join(basedir, os.pardir, 'app', 'blog'))
 
+# templates settings
+TEMPLATE_DIR = os.path.join(os.path.join(basedir, os.pardir, 'app', 'templates'))
+
+

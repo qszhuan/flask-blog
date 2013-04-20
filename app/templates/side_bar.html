@@ -27,7 +27,7 @@
             <li>
                 <a href="{{ url_for('tag', tag_name = tag.name) }}">
                     <span>{{ tag.name }}</span>
-                    <span class="">{{ tag.posts | length }}</span></a>
+                    <span class="">[{{ tag.posts | length }}]</span></a>
             </li>
         {% endfor %}
     </ul>
@@ -38,7 +38,7 @@
         <li class="nav-header">Archives</li>
         {% for archive in archives %}
             <li>
-                <a href="#">
+                <a href="{{ url_for('archive', archive_period = archive[0]) }}">
                     {{ archive[0] }} [{{ archive[1] }}]
                 </a>
             </li>

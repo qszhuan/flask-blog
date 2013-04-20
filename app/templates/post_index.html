@@ -8,11 +8,6 @@
                 <span class="label label-inverse">{{ tag.name }}</span>
             {% endfor %}
             <span class="muted pull-right">posted {{ post.publish_date }}</span>
-            <div style="padding-top: 10px">
-                {{ post.body | truncate(400) | markup }}
-                <button class="btn-link">Read the whole post...</button>
-            </div>
-
         </td>
     </tr>
     </tbody>
