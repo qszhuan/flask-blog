@@ -22,3 +22,7 @@ body {
 li.nav-header{
     color: graytext;
 }
+
+hr{
+    border-top: 2px solid ;
+}

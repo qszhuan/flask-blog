@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block blog_content %}
+    <div class="row-fluid ">
+        <span class="">Tag</span>:
+        <span class="label label-info">{{ tag_name }}</span>
+        <hr>
+    </div>
+
     {% for post in posts %}
         {% include 'post_index.html' %}
     {% endfor %}

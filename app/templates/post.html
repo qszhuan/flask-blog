@@ -9,7 +9,7 @@
             {% endfor %}
             <span class="muted pull-right">posted {{ post.publish_date }}</span>
             <div style="padding-top: 10px">
-                {{ post.body | markup }}
+                {{ post.body | markup | highlight }}
             </div>
         </td>
     </tr>

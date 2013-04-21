@@ -9,8 +9,8 @@
             {% endfor %}
             <span class="muted pull-right">posted {{ post.publish_date }}</span>
             <div style="padding-top: 10px">
-                {{ post.body | truncate(400) | markup }}
-                <button class="btn-link">Read the whole post...</button>
+                {{ post.body | truncate(400) | markup | highlight }}
+                <a class="btn-link" href="{{ url_for('blog', blog_title=post.title) }}">Read the whole post...</a>
             </div>
 
         </td>

@@ -69,11 +69,13 @@ id sem consectetuer libero luctus adipiscing.
 
 Here is an example of AppleScript:
 
-    tell application "Foo"
-        beep
-    end tell
+<pre><code class="applescript">
+tell application "Foo"
+    beep
+end tell
 
-    print "a"
+print "a"
+</code></pre>
 
 ---------------------------------------
 * * *

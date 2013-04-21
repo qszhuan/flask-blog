@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 import codecs
-
 import os
 from flask import render_template
 from jinja2 import Markup
@@ -37,19 +36,35 @@ def blog(blog_title):
 @app.route('/category/<category_name>')
 def category(category_name):
     posts = Category.query.filter(Category.name == category_name).first().posts
-    return render_template('category.html', posts=posts, **_contents())
+    locals().update(_contents())
+    return render_template('category.html', **locals())
 
 
 @app.route('/tag/<tag_name>')
 def tag(tag_name):
     posts = Tag.query.filter(Tag.name == tag_name).first().posts
-    return render_template('tag.html', posts=posts, **_contents())
+    return render_template('tag.html', **dict(locals(), **_contents()))
 
 
 @app.route('/archive/<archive_period>')
 def archive(archive_period):
     posts = Post.query.filter(func.strftime("%m-%Y", Post.publish_date) == archive_period)
-    return render_template('tag.html', posts=posts, **_contents())
+    return render_template('archive.html', **dict(locals(), **_contents()))
+
+
+@app.route('/blog_radar')
+def blog_radar():
+    return render_template('blog_radar.html')
+
+
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html')
+
+
+@app.route('/books')
+def books():
+    return render_template('books.html')
 
 
 def _contents():

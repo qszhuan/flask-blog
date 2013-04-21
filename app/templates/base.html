@@ -6,14 +6,25 @@
     <script src="/static/js/moment.min.js"></script>
     <script src="/static/js/jquery-1.9.1.js"></script>
     <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/nav_header.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/static/css/layout.css" rel="stylesheet">
+    <link href="/static/css/sytax.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/img/favicon.ico" />
 
     <title>{{ _("Qingshan's Blog") }}</title>
+
+    <meta name="keywords" content="zhuanqingshan, killera, programming, .net, python, consultant, agile, xp, lean, technology, developer, software">
+    <meta name="description" content="blog of programming, collection of daily update.">
 </head>
 
 <body>
+{% set left_navigation_bar = [ ('index', 'Home'), ('about', 'About') ] -%}
+{% set center_navigation_bar = [ ('blog_radar', 'Blog Radar'), ('timeline', 'Timeline'), ('books', 'Books') ] -%}
+{% set active_page = active_page|default('index') -%}
+
 {% include 'nav_header.html' %}
+
 <div class="container-fluid">
     <div class="row-fluid">
     <div class="span9">

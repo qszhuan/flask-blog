@@ -20,7 +20,7 @@ class DBInitializer(object):
 
     def sync_blog_into_db(self, file):
         with codecs.open(file, mode='r', encoding='utf-8') as f:
-            title = f.readline()
+            title = f.readline().strip()
             category_name = f.readline().split()[-1]
             category = self._sync_category(category_name)
             tag_names = f.readline().split()[1:]

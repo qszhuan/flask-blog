@@ -1,3 +1,4 @@
+BeautifulSoup
 Babel==0.9.6
 Flask==0.9
 Flask-Babel==0.8
