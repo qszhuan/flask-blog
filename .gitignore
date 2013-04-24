@@ -1,4 +1,5 @@
 .idea
 *.pyc
 test.db
+app.db
 .DS_Store

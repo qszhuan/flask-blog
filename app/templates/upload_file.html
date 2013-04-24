@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block blog_content %}
+    {% include 'blog_preview.html' %}
+{% endblock blog_content %}
+
+{% block sidebar %}
+
+    <div class="thumbnail">
+        <div class="caption">
+            <h3>Post a blog</h3>
+
+            <form action="" method=post enctype=multipart/form-data>
+                <input type=file name=file >
+                <input type=submit value=Upload>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

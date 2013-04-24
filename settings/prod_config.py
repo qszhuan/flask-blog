@@ -19,7 +19,8 @@ MAIL_PASSWORD = '12345!@#$'
 MAIL_USE_TLS = True
 
 # blog settings
-BLOG_PATH = os.path.abspath(os.path.join(basedir, os.pardir, 'app', 'blog'))
+BLOG_PATH = os.path.abspath(os.path.join(basedir, os.pardir, 'blog'))
+TEMP_BLOG_PATH = os.path.abspath(os.path.join(basedir, os.pardir, 'blog_tmp'))
 
 # templates settings
 TEMPLATE_DIR = os.path.join(os.path.join(basedir, os.pardir, 'app', 'templates'))

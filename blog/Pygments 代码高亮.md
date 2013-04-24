@@ -12,7 +12,7 @@ Pygments由四个组件实现代码的语法高亮:
 * **Style（样式）** 在token流输出时，style决定了怎样高亮所有不同的token类型。它把token类型和属性关联起来，如设置字体为<span style="color:red">**红色并加粗**</span>。
 
 <br>
-下面这段代码是我为本博客写的[jinja2](http://jinja.pocoo.org/, "Jinja2 is a full featured template engine for Python.")模板的filter扩展, 功能就是在页面显示之前做语法高亮。
+下面这段代码是我为本博客写的[jinja2](http://jinja.pocoo.org/ "Jinja2 is a full featured template engine for Python.")模板的filter扩展, 功能就是在页面显示之前做语法高亮。
 
 <pre><code class="python">
 # -*- coding:utf-8 -*-
