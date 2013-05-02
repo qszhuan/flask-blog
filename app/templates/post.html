@@ -3,9 +3,13 @@
     <tr class="row-fluid">
         <td>
             <h4>{{ post.title | title }}</h4>
-            <span class="label label-info well-small">{{ post.category.name }}</span>
+            <span class="label label-info well-small" >
+                <a href="{{ url_for('category', category_name=post.category.name) }}">{{ post.category.name }}</a>
+            </span>
             {% for tag in post.tags %}
-                <span class="label label-inverse">{{ tag.name }}</span>
+                <span class="label label-inverse">
+                    <a href="{{ url_for('tag', tag_name=tag.name) }}">{{ tag.name }}</a>
+                </span>
             {% endfor %}
             <span class="muted pull-right">posted {{ post.publish_date }}</span>
             <div style="padding-top: 10px">

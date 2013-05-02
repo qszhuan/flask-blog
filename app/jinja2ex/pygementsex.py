@@ -10,10 +10,13 @@ def highlight(html):
     soup = BeautifulSoup(html)
     code_blocks = soup.findAll('pre')
     for block in code_blocks:
-        lexer = get_lexer_by_name(block.code['class'], stripall=True) if block.code.has_key('class') else guess_lexer(block.text)
+        lexer_key = block.code.has_key('class')
+        if not lexer_key:
+            continue
+        lexer = get_lexer_by_name(block.code['class'], stripall=True)
         try:
             code = ''.join([unicode(item.text) for item in block.contents])
-            formatter = HtmlFormatter(linenos='inline', linenostart=0)
+            formatter = HtmlFormatter()
             code_hl = pygments.highlight(code, lexer, formatter)
             block.contents = [BeautifulSoup(code_hl)]
             block.name = 'div'

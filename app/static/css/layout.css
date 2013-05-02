@@ -26,3 +26,12 @@ li.nav-header{
 hr{
     border-top: 2px solid ;
 }
+
+pre{
+    background-color:#E0E0FF;
+}
+
+span.label a{
+    color: #ffffff;
+    background-color: transparent;
+}
