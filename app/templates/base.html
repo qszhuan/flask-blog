@@ -19,23 +19,16 @@
 </head>
 
 <body>
+
 {% set left_navigation_bar = [ ('index', 'Home'), ('about', 'About') ] -%}
-{% set center_navigation_bar = [ ('blog_radar', 'Blog Radar'), ('timeline', 'Timeline'), ('books', 'Books') ] -%}
+{% set center_navigation_bar = [ ('blog_radar', 'Category'), ('timeline', 'Tags'), ('books', 'Archives') ] -%}
 {% set active_page = active_page|default('index') -%}
 
 {% include 'nav_header.html' %}
 
 <div class="container">
     <div class="row-fluid">
-    <div class="span9">
         {% block blog_content %}{% endblock blog_content %}
-    </div>
-    <div class="span3">
-        {% block sidebar %}
-        {% include 'side_bar.html' %}
-        {% endblock sidebar %}
-    </div>
-
     </div>
     {% include 'footer.html' %}
 </div>

@@ -5,7 +5,7 @@ tags: pip virtualenv pycharm ipython
 
 
 
-## [setuptools][setuptools]
+### [setuptools][setuptools]
 >Download, build, install, upgrade, and uninstall Python packages -- easily!
 
 去<https://pypi.python.org/pypi/setuptools>找到合适的蛋。我当前用的是python2.7，所以选择了[setuptools-0.6c11-py2.7.egg][setuptools]。
@@ -25,7 +25,7 @@ tags: pip virtualenv pycharm ipython
 [setuptools]: https://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg#md5=fe1f997bc722265116870bc7919059ea
 
 
-## [pip][pip]
+### [pip][pip]
 >A tool for installing and managing Python packages.
 
 不要困惑，pip和setuptools都是python的包管理工具，其实setuptools我没用过，只是用它来装pip。会用了pip，就没有动力再去学其他的了。
@@ -118,7 +118,7 @@ tags: pip virtualenv pycharm ipython
 [pip]: https://pypi.python.org/pypi/pip
 
 
-##[virtualenv][virtualenv]
+###[virtualenv][virtualenv]
 virtualenv可以用来创建虚拟的，独立的python开发环境，你可以在某一环境安装所需的python库，而不会影响到其他环境。
 
     $ sudo pip install virtualenv
@@ -133,7 +133,7 @@ virtualenv可以用来创建虚拟的，独立的python开发环境，你可以�
 [virtualenv]:http://www.virtualenv.org/en/latest/
 
 
-##[virtualenvwrapper][virtualenvwrapper]
+###[virtualenvwrapper][virtualenvwrapper]
 
 顾名思义，它是virtualenv的扩展，提供了更加易用的命令。
 

@@ -3,11 +3,7 @@
     <tr class="row-fluid">
         <td>
             <h4><a href="{{ url_for('blog', blog_title=post.title) }}">{{ post.title | title }}</a></h4>
-            <span class="label label-info well-small">{{ post.category.name }}</span>
-            {% for tag in post.tags %}
-                <span class="label label-inverse">{{ tag.name }}</span>
-            {% endfor %}
-            <span class="muted pull-right">posted {{ post.publish_date }}</span>
+            {% include 'post_summary.html' %}
         </td>
     </tr>
     </tbody>

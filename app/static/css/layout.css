@@ -27,11 +27,18 @@ hr{
     border-top: 2px solid ;
 }
 
-pre{
-    background-color:#E0E0FF;
-}
+/*pre{*/
+    /*background-color:#E0E0FF;*/
+/*}*/
 
 span.label a{
     color: #ffffff;
     background-color: transparent;
+}
+
+table.blog_thread{
+    box-shadow: 2px 2px 8px #aaa;
+    -webkit-box-shadow: 2px 2px 8px #aaa;
+    -moz-box-shadow: 2px 2px 8px #aaa;
+    background-color: #ffffff;
 }

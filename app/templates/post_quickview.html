@@ -1,15 +1,11 @@
-<table class="table table-bordered ">
+<table class="blog_thread table table-bordered ">
     <tbody>
     <tr class="row-fluid">
         <td>
-            <h4><a href="{{ url_for('blog', blog_title=post.title) }}">{{ post.title | title }}</a></h4>
-            <span class="label label-info well-small">{{ post.category.name }}</span>
-            {% for tag in post.tags %}
-                <span class="label label-inverse">{{ tag.name }}</span>
-            {% endfor %}
-            <span class="muted pull-right">posted {{ post.publish_date }}</span>
+            <h3><a href="{{ url_for('blog', blog_title=post.title) }}">{{ post.title | title }}</a></h3>
+            {% include 'post_summary.html' %}
             <div style="padding-top: 10px">
-                {{ post.body | truncate(400) | markup | highlight }}
+                {{ post.body | markup | truncate(600)  | highlight }}
                 <a class="btn-link" href="{{ url_for('blog', blog_title=post.title) }}">Read the whole post...</a>
             </div>
 
