@@ -8,18 +8,16 @@
 {% block sidebar %}
 
     <div class="thumbnail">
-        <img data-src="holder.js/280x280" alt="300x200" style="width: 280px; height: 280px;"
-             src="{{ me }}">
+        <img data-src="holder.js/280x280" alt="300x200"  src="{{ me }}">
 
         <div class="caption">
-            <h3>Qingshan Zhuan</h3>
+            <h3>{{ name }}</h3>
 
-            <p>Developer, Consultant. Working at ThoughtWorks</p>
+            <p>{{ desc }}</p>
 
             <p>
                 <a class="btn btn-primary"
-                   href="http://www.google.com/recaptcha/mailhide/d?k=01GF3Ml8jmtbv43VhhfYErOA==&amp;c=mU5fCywLel1JB5b3nDCyRyz2QQvCANeWakKiD0ABlEE="
-                   onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501GF3Ml8jmtbv43VhhfYErOA\75\75\46c\75mU5fCywLel1JB5b3nDCyRyz2QQvCANeWakKiD0ABlEE\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;"
+                   onclick="window.open('{{ email }}', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;"
                    title="Reveal this e-mail address">Email me
                 </a>
             </p>

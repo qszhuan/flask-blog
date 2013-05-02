@@ -20,6 +20,10 @@ def avatar():
 def about():
     me = avatar()
     about_file = os.path.join(app.config["TEMPLATE_DIR"], 'about.md')
+    name = 'Qingshan Zhuan'
+    desc = 'Developer, Consultant. Working at ThoughtWorks'
+    email = u'http://www.google.com/recaptcha/mailhide/d?k\07501GF3Ml8jmtbv43VhhfYErOA\75\75\46c\75mU5fCywLel1JB5b3nDCyRyz2QQvCANeWakKiD0ABlEE\075'
+
     with codecs.open(about_file, mode='r', encoding='utf-8') as f:
         content = Markup(markdown.markdown(f.read()))
         return render_template('about.html', **locals())
