@@ -1,20 +1,24 @@
 {% block blog_content %}
     <div class="row-fluid ">
-    <span >
-        <span >Preview for </span>:
-        <span class="label label-success well-small">{{ filename }}</span>
+        {% if post %}
+        <div class="control-label">
+        <span >
+            <span >Preview for </span>:
+            <span class="label label-success well-small">{{ filename }}</span>
 
-    </span>
+        </span>
+        </div>
 
-        <hr>
-    </div>
-    {% if post %}
         <p>
             <a class="btn-primary btn"
                href="{{ url_for('post', filename=filename) }}">
                 Save
             </a>
         </p>
+        {% endif %}
+        <hr>
+    </div>
+    {% if post %}
         {% include 'post.html' %}
     {% endif %}
 {% endblock blog_content %}

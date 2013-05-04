@@ -3,3 +3,6 @@
 test.db
 app.db
 .DS_Store
+blog/
+blog_tmp/
+*~

@@ -1,8 +1,11 @@
-Pygments 代码高亮  
+##Pygments 代码高亮  
 Category: python  
-Tags: pygments lexer highlight pygmentize markdown
+Tags: pygments, lexer, highlight, pygmentize, markdown
+Date: 2013-04-26
 
-[Pygments](http://example.com/ "http://example.com")是一个基于python的代码语法高亮库。其支持的语言相当的广，而且你也可以轻松地对它进行扩展。
+
+
+[Pygments][pygments]是一个基于python的代码语法高亮库。其支持的语言相当的广，而且你也可以轻松地对它进行扩展。
 
 Pygments由四个组件实现代码的语法高亮:
 
@@ -12,7 +15,7 @@ Pygments由四个组件实现代码的语法高亮:
 * **Style（样式）** 在token流输出时，style决定了怎样高亮所有不同的token类型。它把token类型和属性关联起来，如设置字体为<span style="color:red">**红色并加粗**</span>。
 
 <br>
-下面这段代码是我为本博客写的[jinja2](http://jinja.pocoo.org/ "Jinja2 is a full featured template engine for Python.")模板的filter扩展, 功能就是在页面显示之前做语法高亮。
+下面这段代码是我为本博客写的[jinja2][jinja2]模板的filter扩展, 功能就是在页面显示之前做语法高亮。
 
 <pre><code class="python">
 # -*- coding:utf-8 -*-
@@ -77,3 +80,5 @@ markdown语法中会将代码段在转换成HTML时将代码段嵌入到`<pre><c
 <br>
 很多人在用`Jekyll`在github上写博客，也是可以使用Pygments做语法高亮的哦。还有一个pygments.rb，是用ruby对pygments的包装，这样在ruby中也可以用pygments来做语法高亮了
 
+[jinja2]: http://jinja.pocoo.org/ 
+[pygments]: http://pygments.org/

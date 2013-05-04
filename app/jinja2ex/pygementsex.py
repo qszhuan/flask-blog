@@ -13,7 +13,7 @@ def highlight(html):
         lexer_key = block.code.has_key('class')
         if not lexer_key:
             continue
-        lexer = get_lexer_by_name(block.code['class'], stripall=True)
+        lexer = get_lexer_by_name(block.code['class'])
         try:
             code = ''.join([unicode(item.text) for item in block.contents])
             formatter = HtmlFormatter()
