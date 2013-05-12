@@ -1,6 +1,6 @@
-BeautifulSoup的使用
+##BeautifulSoup的使用
 Category: python
-tags: BeautifulSoup urlopen ted subtitle
+Tags: BeautifulSoup urlopen ted subtitle
 
 
 <pre><code class="python">

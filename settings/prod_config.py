@@ -6,6 +6,7 @@ CSRF_ENABLED = True
 SECRET_KEY = 'development secret key'
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+print basedir
 
 #database settings
 DATABASE_PATH = os.path.abspath(os.path.join(basedir, os.pardir))

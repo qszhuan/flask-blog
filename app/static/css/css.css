@@ -109,3 +109,7 @@ sup {
         page-break-inside: avoid;
     }
 }
+
+#nav, .nav-header{
+    font-size: 1em;
+}

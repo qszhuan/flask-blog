@@ -5,6 +5,8 @@ import pygments
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import guess_lexer, get_lexer_by_name
 
+BeautifulSoup.QUOTE_TAGS['code'] = None
+
 
 def highlight(html):
     soup = BeautifulSoup(html)

@@ -9,6 +9,7 @@ def main():
         return
 
     url = sys.argv[1]
+    print url
     soup = BeautifulSoup(urlopen(url).read())
     attr_map = soup.find(id="share_and_save").attrMap
     langs = ['en', 'zh-cn']
