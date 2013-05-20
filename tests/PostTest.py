@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+from sqlalchemy import func
 from app import db
 from app.models import Category, Tag, Post
 from TestBase import TestBase

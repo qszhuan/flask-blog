@@ -5,7 +5,7 @@ from shutil import move
 from flask import render_template, request, redirect, url_for
 from jinja2 import Markup
 import markdown
-from sqlalchemy import func
+from sqlalchemy import func, extract
 from PostSynchronizer import PostSynchronizer
 from app import app, db
 from app.PostGenerator import PostGenerator
@@ -53,9 +53,9 @@ def tag(tag_name):
     return render_template('tag.html', **dict(locals(), **_contents()))
 
 
-@app.route('/archive/<archive_period>')
-def archive(archive_period):
-    posts = Post.query.filter(func.strftime("%m-%Y", Post.publish_date) == archive_period)
+@app.route('/archive/<year>/<month>')
+def archive(year, month):
+    posts = Post.query.filter(db.func.year(Post.publish_date) == year and db.func.month(Post.publish_date) == month)
     return render_template('archive.html', **dict(locals(), **_contents()))
 
 
@@ -100,6 +100,7 @@ def post(filename):
     post = PostSynchronizer().sync_blog_into_db(dst)
     return redirect(url_for('blog', blog_title=post.title))
 
+
 ALLOWED_EXTENSIONS = {'md', 'txt'}
 
 
@@ -110,8 +111,12 @@ def allowed_file(filename):
 
 def _contents():
     categories = Category.query.all()
-    tags = Tag.query.all()
-    func_strftime = func.strftime("%m-%Y", Post.publish_date)
-    archives = db.session.query(func_strftime, func.count(Post.id)).group_by(func_strftime).all()
+    query = db.session.query(Tag, db.func.count(Post.id)).join(Post.tags).group_by(Tag.id).order_by(
+        db.desc(db.func.count(Post.id))).limit(5)
+    tags = query.all()
+    year_func = extract('year', Post.publish_date)
+    month_func = extract('month', Post.publish_date)
+    archives = db.session.query(year_func, month_func, func.count(Post.id)).group_by(year_func).group_by(
+        month_func).all()
     recent_posts = Post.query.order_by(Post.publish_date.desc()).limit(5)
-    return locals()   # {'categories': categories, 'tags': tags, 'archives': archives, 'recent_posts': recent_posts}
+    return {'categories': categories, 'tags': tags, 'archives': archives, 'recent_posts': recent_posts}

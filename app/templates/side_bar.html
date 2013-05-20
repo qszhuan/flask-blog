@@ -23,11 +23,11 @@
 {#<div class="well sidebar-nav ">#}
     <ul class="nav nav-list ">
         <li class="nav-header">Tags</li>
-        {% for tag in tags %}
+        {% for tag, count in tags %}
             <li>
                 <a href="{{ url_for('tag', tag_name = tag.name) }}">
                     <span>{{ tag.name }}</span>
-                    <span class="">[{{ tag.posts | length }}]</span></a>
+                    <span class="">[{{ count }}]</span></a>
             </li>
         {% endfor %}
     </ul>
@@ -36,10 +36,10 @@
 {#<div class="well sidebar-nav ">#}
     <ul class="nav nav-list ">
         <li class="nav-header">Archives</li>
-        {% for archive in archives %}
+        {% for year, month, count in archives %}
             <li>
-                <a href="{{ url_for('archive', archive_period = archive[0]) }}">
-                    {{ archive[0] }} [{{ archive[1] }}]
+                <a href="{{ url_for('archive', year=year, month=month) }}">
+                    {{ "%d-%d" %(year, month) }} [{{ count }}]
                 </a>
             </li>
         {% endfor %}

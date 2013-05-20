@@ -1,6 +1,6 @@
 ##Pygments 代码高亮  
 Category: python  
-Tags: pygments, lexer, highlight, pygmentize, markdown
+Tags: python, pygments, lexer, highlight, pygmentize, markdown
 Date: 2013-04-26
 
 

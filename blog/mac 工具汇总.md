@@ -1,5 +1,5 @@
 ##Mac 工具  
-Catetory: tools  
+Category: tools
 Tags: Homebrew, iterm2, autojump, oh-my-zsh   
 Date: 2013-04-26
  
