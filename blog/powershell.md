@@ -1,0 +1,1 @@
+stop-process 'notexist' -ErrorAction silentlycontinue
