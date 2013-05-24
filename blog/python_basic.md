@@ -370,9 +370,9 @@ class TestProp(object):
 ---
 **Advanced**
 
-* decorators: http://wiki.python.org/moin/PythonDecoratorLibrary
+* [decorators](http://wiki.python.org/moin/PythonDecoratorLibrary)
 * Python for Data Analysis (scipy, numpy, pandas)
-* Dive Into Python
+* [Dive Into Python](http://woodpecker.org.cn/diveintopython/toc/index.html)
 
 ---
 **Exercise**
