@@ -12,7 +12,7 @@ def highlight(html):
     soup = BeautifulSoup(html)
     code_blocks = soup.findAll('pre')
     for block in code_blocks:
-        lexer_key = block.code.has_key('class')
+        lexer_key = block.code.has_key('class') if block.code else None
         if not lexer_key:
             continue
         lexer = get_lexer_by_name(block.code['class'])
