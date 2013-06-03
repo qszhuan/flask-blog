@@ -10,7 +10,13 @@ print basedir
 
 #database settings
 DATABASE_PATH = os.path.abspath(os.path.join(basedir, os.pardir))
-SQLALCHEMY_DATABASE_URI = os.path.join('postgresql://localhost', 'blog')
+
+if os.environ.get('DATABASE_URL') is None:
+    SQLALCHEMY_DATABASE_URI = os.path.join('postgresql://localhost', 'blog')
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db') + '?check_same_thread=False'
+else:
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+    print SQLALCHEMY_DATABASE_URI
 
 # mail server settings
 MAIL_SERVER = 'smtp.gmail.com'

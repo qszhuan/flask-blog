@@ -310,7 +310,7 @@ def say(name):
 say('thoughtworks')
 </code></pre>
 
-######@property
+######property
 #######Way 1
 <pre><code class="python">
 class C(object):
