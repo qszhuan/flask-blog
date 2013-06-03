@@ -8,7 +8,8 @@ from settings import prod_config
 app = Flask(__name__)
 app.config.from_object(prod_config)
 db = SQLAlchemy(app)
-db.create_all()
+print app.config['SQLALCHEMY_DATABASE_URI']
+# db.create_all()
 
 from flask.ext.babel import Babel
 babel = Babel(app)
