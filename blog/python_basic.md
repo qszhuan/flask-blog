@@ -1,6 +1,6 @@
-##Python basic
+##Python 基础知识
 Category: python  
-Tags: list comprehension, generator, decorator  
+Tags: list comprehension, generator, decorator, yield
 Date: 2013-05-21  
 
 
@@ -30,60 +30,57 @@ type(a)
 
 **concat string:**
 
-'a'\*80  
-'a'+'b'  
+<pre><code class="python">
+'a'*80
+'a'+'b'
 '%s %s' % ('a', 'b')
+</code></pre>
 
-**convert to string**  
-'a' + 1 #?    
-'a' + str(1)  
-str('a')  
-repr('a')  
-'a'+repr('a')  
+**convert to string**
 
-**the methods of str**  
+<pre><code class="python">
+'a' + 1 #?
+'a' + str(1)
+str('a')
+repr('a')
+'a'+repr('a')
+</code></pre>
+
+**the methods of str**
+
+<pre><code class="python">
 dir('a')
-
+</code></pre>
 
 ####None, True, False, is
+
 <pre><code class="python">
 None, 0, False
-
 type(None)  	#NoneType
-
 type(False)  	#bool
-
 None is 0		#False
-
 True is 1		#False
-
 True is not 1	#False
-
 True == 1		#True
 </code></pre>
 
 #### and or
+
 <pre><code class="python">
 1 and 2			#2
 1 or 2			#1
 </code></pre>
 
 ####list
+
 <pre><code class="python">
 [], list()
-
 a = [1, 'a']
-
 a[0], a[1], a[2]
-
 len(a)
-
 a.count() #??
-
 a.count(1)
-
 a = range(10)
-
 a[1:]  		#[1, 2, 3, 4, 5, 6, 7, 8, 9]
 a[4:]  
 a[1::2]  	#[1, 3, 5, 7, 9]
@@ -94,6 +91,7 @@ a[::-1]  	#[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 </code></pre>
 
 #####use list as stack, queue
+
 <pre><code class="python">
 dir(list)
 a.pop()
@@ -102,47 +100,50 @@ a.pop(0)
 </code></pre>
 
 ####tuple:
+
 <pre><code class="python">
-1,2  
-1,  
-(1,2)  
-(1)  
-(1,)  
-a = 1,2  
-a[0] = 2  
-a,b = 1,2  
-a,b = b,a  
-()  
-a, _ = 1, 2  
+1,2
+1,
+(1,2)
+(1)
+(1,)
+a = 1,2
+a[0] = 2
+a,b = 1,2
+a,b = b,a
+()
+a, _ = 1, 2
 </code></pre>
 
 ####dict
 <pre><code class="python">
-{}, dict()  
-d = {1:2,'a':'b'}  
-d['c']  
-d.get('c')  
+{}, dict()
+d = {1:2,'a':'b'}
+d['c']
+d.get('c')
 </code></pre>
 
 ####useful libs
-import collections
+    import collections
 
 ####set
-a = set([1,2,1])
+    a = set([1,2,1])
 
 ####generator expression && list comprehension
+
 <pre><code class="python">
-a = (i for i in range(10))  
-b = [i for i in range(10)]  
-c = [i for i in range(10) if i % 2]  
-filter, map, reduce    
-filter(lambda x: x%2, range(10))  
-filter(None, range(10))  
-map(lambda x:x+3, a)  
-reduce(lambda x,y:x*y, [1,2,3,4,5], 10) #10*((((1*2)*3)*4)*5)
+a = (i for i in range(10))
+b = [i for i in range(10)]
+c = [i for i in range(10) if i % 2]
+filter, map, reduce
+filter(lambda x: x%2, range(10))
+filter(None, range(10))
+map(lambda x:x+3, a)
+reduce(lambda x,y:x*y, [1,2,3,4,5], 10) #((((((10*1)*2)*3)*4)*5)
 </code></pre>
 
-####yield 
+####yield
+
 <pre><code class="python">
 def fab(max):
     n, a, b = 0, 0, 1
@@ -159,6 +160,7 @@ for i in g:
 
 ####class and function
 ##### classic class and new-style class
+
 <pre><code class = "python">
 class A: pass
 class A(object): 
@@ -187,6 +189,7 @@ def fun():
 </code></pre>
 
 #####class variable and instance variable
+
 <pre><code class="python">
 class A(object):
     _name = 'b'
@@ -207,6 +210,7 @@ if __name__ == '__main__':
 </code></pre>
 
 ##### class method
+
 <pre><code class="python">
 class A(object):
     def __init__(self, name):
@@ -231,7 +235,8 @@ print b
 
 
 ####exception
-#####try, raise, except, finnaly  
+#####try, raise, except, finnaly
+
 <pre><code class="python">
 class B:
     pass
@@ -255,6 +260,7 @@ for c in [B, C, D]:
 
 ###decorators
 #####bad example
+
 <pre><code class="python">
 def wrapper(func):
     print '##before %s:' % func.__name__
@@ -270,6 +276,7 @@ say('hello, world')
 </code></pre>
 
 #####without arguments
+
 <pre><code class="python">
 def wrapper2(func):
     def f(args):
@@ -289,6 +296,7 @@ say('hello, world')
 </code></pre>
 
 #####with arguments
+
 <pre><code class="python">
 
 def wrapper3(*arguments):
@@ -312,6 +320,7 @@ say('thoughtworks')
 
 ######property
 #######Way 1
+
 <pre><code class="python">
 class C(object):
     def __init__(self):
@@ -335,6 +344,7 @@ print c.x
 </code></pre>
 
 #######Way 2
+
 <pre><code class="python">
 class TestProp(object):
     @property
@@ -346,7 +356,6 @@ class TestProp(object):
     def x(self, value):
         print 'called setter'
         self._x = value
-
 
 </code></pre>
 

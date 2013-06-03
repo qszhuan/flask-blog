@@ -15,6 +15,7 @@ PUBLISH_DATE_PREFIX = 'Date:'
 class PostGenerator(object):
     def generate(self, file):
         with codecs.open(file, mode='r', encoding='utf-8') as f:
+            print '#' * 8 + file + '#' * 8
             contents = f.readlines()
             title = contents[0].lstrip(MARKDOWN_H2) if contents[0].startswith(MARKDOWN_H2) else MISSING
 
@@ -57,7 +58,14 @@ class PostGenerator(object):
             yield tag
 
     def _generate_post(self, title, body, category, tags, create_date):
-        post = Post(title=title, body=body, category=category, tags=list(tags), publish_date=create_date)
+        tag_list = list(tags)
+        post = Post.query.filter(Post.title == title).first()
+        if post is not None:
+            post.body = body
+            post.category = category
+            post.tags = tag_list
+        else:
+            post = Post(title=title, body=body, category=category, tags=tag_list, publish_date=create_date)
         return post
 
 
