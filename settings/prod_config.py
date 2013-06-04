@@ -13,7 +13,7 @@ DATABASE_PATH = os.path.abspath(os.path.join(basedir, os.pardir))
 
 if os.environ.get('DATABASE_URL') is None:
     # SQLALCHEMY_DATABASE_URI = os.path.join('postgresql://localhost', 'blog')
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db') + '?check_same_thread=False'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 else:
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 

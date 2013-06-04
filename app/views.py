@@ -42,20 +42,23 @@ def blog(blog_title):
 
 @app.route('/category/<category_name>')
 def category(category_name):
-    posts = Category.query.filter(Category.name == category_name).first().posts
+    posts = db.session.query(Post).join(Post.category).filter(Category.name == category_name).order_by(
+        Post.publish_date.desc())
     locals().update(_contents())
     return render_template('category.html', **locals())
 
 
 @app.route('/tag/<tag_name>')
 def tag(tag_name):
-    posts = Tag.query.filter(Tag.name == tag_name).first().posts
+    posts = db.session.query(Post).join(Post.tags).filter(Tag.name == tag_name).order_by(Post.publish_date.desc())
     return render_template('tag.html', **dict(locals(), **_contents()))
 
 
 @app.route('/archive/<year>/<month>')
 def archive(year, month):
-    posts = Post.query.filter(db.func.year(Post.publish_date) == year and db.func.month(Post.publish_date) == month)
+    posts = Post.query.filter(
+        db.func.year(Post.publish_date) == year and db.func.month(Post.publish_date) == month).order_by(
+        Post.publish_date.desc())
     return render_template('archive.html', **dict(locals(), **_contents()))
 
 
