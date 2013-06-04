@@ -1,6 +1,8 @@
 ##BeautifulSoup的使用
+
 Category: python
 Tags: BeautifulSoup
+Date: 2013-05-02  
 
 
 <pre><code class="python">
