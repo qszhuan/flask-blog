@@ -5,35 +5,36 @@
             <li><a href="{{ url_for('blog', blog_title = post.title) }}">{{ post.title }}</a></li>
         {% endfor %}
     </ul>
-{#</div>#}
-{#<div class="well sidebar-nav ">#}
+    {#</div>#}
+    {#<div class="well sidebar-nav ">#}
     <ul class="nav nav-list ">
 
         <li class="nav-header">Categories</li>
         {% for category in categories %}
             <li class="control-list">
                 <a href="{{ url_for('category', category_name=category.name) }}">
-                    {{ category.name }}  [{{ category.posts | length }}]
+                    {{ category.name }} [{{ category.posts | length }}]
                 </a>
             </li>
         {% endfor %}
     </ul>
 
-{#</div>#}
-{#<div class="well sidebar-nav ">#}
+    {#</div>#}
+    {#<div class="well sidebar-nav ">#}
     <ul class="nav nav-list ">
-        <li class="nav-header">Tags</li>
+        <li  class="nav-header">Tags</li>
+        <div id="tag-cloud">
         {% for tag, count in tags %}
-            <li>
-                <a href="{{ url_for('tag', tag_name = tag.name) }}">
+                <a href="{{ url_for('tag', tag_name = tag.name) }}" rel="{{ count }}">
                     <span>{{ tag.name }}</span>
-                    <span class="">[{{ count }}]</span></a>
-            </li>
+            </a>
         {% endfor %}
+        </div>
+
     </ul>
 
-{#</div>#}
-{#<div class="well sidebar-nav ">#}
+    {#</div>#}
+    {#<div class="well sidebar-nav ">#}
     <ul class="nav nav-list ">
         <li class="nav-header">Archives</li>
         {% for year, month, count in archives %}

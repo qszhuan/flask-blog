@@ -2,7 +2,7 @@
     <tbody>
     <tr class="row-fluid">
         <td>
-            <h3><a href="{{ url_for('blog', blog_title=post.title) }}">{{ post.title | title }}</a></h3>
+            <h3><a href="{{ url_for('blog', blog_title=post.title) }}">{{ post.title }}</a></h3>
             {% include 'post_summary.html' %}
             <div style="padding-top: 10px">
                 {{ post.body | markup | truncate(600)  | highlight }}

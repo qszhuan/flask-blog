@@ -98,9 +98,9 @@ sup {
     vertical-align: super;
     line-height: 0;
 }
-* {
-    -webkit-print-color-adjust: exact;
-}
+/** {*/
+    /*-webkit-print-color-adjust: exact;*/
+/*}*/
 @media print {
     body,code,pre code,h1,h2,h3,h4,h5,h6 {
         color: black;
@@ -111,5 +111,14 @@ sup {
 }
 
 #nav, .nav-header{
-    font-size: 1em;
+    /*font-size: 1em;*/
+}
+
+#tag-cloud a{
+    text-decoration: none;
+    color: #000000;
+}
+
+#tag-cloud a:hover {
+    text-decoration: underline;
 }

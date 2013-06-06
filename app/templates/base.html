@@ -8,14 +8,27 @@
     <script src="/static/js/bootstrap.js"></script>
     <script src="/static/js/nav_header.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/jquery.tagcloud.js"></script>
     <link href="/static/css/layout.css" rel="stylesheet">
     <link href="/static/css/sytax.css" rel="stylesheet">
     <link href="/static/css/css.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/static/img/favicon.ico" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
 
     <title>{{ _("KillerA's Blog") }}</title>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.fn.tagcloud.defaults = {
+                size: {start: 9, end: 18, unit: 'pt'},
+                color: {start: '##000cde', end: '##000f52'}
+            };
 
-    <meta name="keywords" content="zhuanqingshan, killera, programming, .net, python, consultant, agile, xp, lean, technology, developer, software">
+            $(function () {
+                $('#tag-cloud a').tagcloud();
+            });
+        });
+    </script>
+    <meta name="keywords"
+          content="zhuanqingshan, killera, programming, .net, python, consultant, agile, xp, lean, technology, developer, software">
     <meta name="description" content="blog of programming, collection of daily update.">
 </head>
 
@@ -34,7 +47,7 @@
         </div>
         <div class="span3">
             {% block sidebar %}
-            {% include 'side_bar.html' %}
+                {% include 'side_bar.html' %}
             {% endblock sidebar %}
         </div>
     </div>

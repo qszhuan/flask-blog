@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 import codecs
 import os
+import random
 from shutil import move
 from flask import render_template, request, redirect, url_for
 from jinja2 import Markup
@@ -57,7 +58,7 @@ def tag(tag_name):
 @app.route('/archive/<year>/<month>')
 def archive(year, month):
     posts = Post.query.filter(
-        db.func.year(Post.publish_date) == year and db.func.month(Post.publish_date) == month).order_by(
+        extract('year', Post.publish_date) == year and extract('month', Post.publish_date) == month).order_by(
         Post.publish_date.desc())
     return render_template('archive.html', **dict(locals(), **_contents()))
 
@@ -115,7 +116,7 @@ def allowed_file(filename):
 def _contents():
     categories = Category.query.all()
     query = db.session.query(Tag, db.func.count(Post.id)).join(Post.tags).group_by(Tag.id).order_by(
-        db.desc(db.func.count(Post.id))).limit(5)
+        db.desc(db.func.count(Post.id)))
     tags = query.all()
     year_func = extract('year', Post.publish_date)
     month_func = extract('month', Post.publish_date)
