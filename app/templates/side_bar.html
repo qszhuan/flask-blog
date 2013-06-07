@@ -39,7 +39,7 @@
         <li class="nav-header">Archives</li>
         {% for year, month, count in archives %}
             <li>
-                <a href="{{ url_for('archive', year=year, month=month) }}">
+                <a href="{{ url_for('archive', year=year | int, month=month|int) }}">
                     {{ "%d-%d" %(year, month) }} [{{ count }}]
                 </a>
             </li>

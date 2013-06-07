@@ -58,7 +58,7 @@ def tag(tag_name):
 @app.route('/archive/<year>/<month>')
 def archive(year, month):
     posts = Post.query.filter(
-        extract('year', Post.publish_date) == year and extract('month', Post.publish_date) == month).order_by(
+        extract('year', Post.publish_date) == year, extract('month', Post.publish_date) == float(month)).order_by(
         Post.publish_date.desc())
     return render_template('archive.html', **dict(locals(), **_contents()))
 
