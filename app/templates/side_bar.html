@@ -40,7 +40,7 @@
         {% for year, month, count in archives %}
             <li>
                 <a href="{{ url_for('archive', year=year | int, month=month|int) }}">
-                    {{ "%d-%d" %(year, month) }} [{{ count }}]
+                    {{ momentjs(year=year, month=month).format('MMM YYYY') }} [{{ count }}]
                 </a>
             </li>
         {% endfor %}

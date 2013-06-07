@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 import codecs
+from datetime import date
 import os
 import random
 from shutil import move
@@ -51,7 +52,7 @@ def category(category_name):
 
 @app.route('/tag/<tag_name>')
 def tag(tag_name):
-    posts = db.session.query(Post).join(Post.tags).filter(Tag.name == tag_name).order_by(Post.publish_date.desc())
+    posts = db.session.query(Post).join(Post.tags).filter(Tag.name == tag_name).order_by(Post.publish_date.desc()).all()
     return render_template('tag.html', **dict(locals(), **_contents()))
 
 
@@ -59,7 +60,7 @@ def tag(tag_name):
 def archive(year, month):
     posts = Post.query.filter(
         extract('year', Post.publish_date) == year, extract('month', Post.publish_date) == float(month)).order_by(
-        Post.publish_date.desc())
+        Post.publish_date.desc()).all()
     return render_template('archive.html', **dict(locals(), **_contents()))
 
 
@@ -122,5 +123,6 @@ def _contents():
     month_func = extract('month', Post.publish_date)
     archives = db.session.query(year_func, month_func, func.count(Post.id)).group_by(year_func).group_by(
         month_func).all()
-    recent_posts = Post.query.order_by(Post.publish_date.desc()).limit(5)
+    recent_posts = Post.query.order_by(Post.publish_date.desc()).limit(5).all()
+
     return {'categories': categories, 'tags': tags, 'archives': archives, 'recent_posts': recent_posts}

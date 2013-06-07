@@ -7,5 +7,5 @@
         <a href="{{ url_for('tag', tag_name=tag.name) }}">{{ tag.name }}</a>
         </span>
     {% endfor %}
-    <span class="muted pull-right">posted {{ post.publish_date }}</span>
+    <span class="muted pull-right">posted {{ momentjs(post.publish_date).format('L') }}</span>
 </div>
