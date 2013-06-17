@@ -13,7 +13,7 @@ class momentjs:
             self.date = date(year, month, day)
 
     def render(self, format):
-        return Markup('<script>\ndocument.write(moment("%s").%s);\n</script>' % (
+        return Markup('<script>\nmoment.lang("zh");document.write(moment("%s").%s);\n</script>' % (
             self.date.strftime('%Y-%m-%dT%H:%M:%S Z'), format))
 
     def format(self, fmt):

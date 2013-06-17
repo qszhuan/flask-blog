@@ -4,6 +4,7 @@
     <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="/static/css/bootstrap.css" rel="stylesheet">
     <script src="/static/js/moment.min.js"></script>
+    <script src="/static/js/moment-zh.min.js"></script>
     <script src="/static/js/jquery-1.9.1.js"></script>
     <script src="/static/js/bootstrap.js"></script>
     <script src="/static/js/nav_header.js"></script>
@@ -44,6 +45,8 @@
     <div class="row-fluid">
         <div class="span9">
             {% block blog_content %}{% endblock blog_content %}
+            {% block comments %}{% endblock comments %}
+
         </div>
         <div class="span3">
             {% block sidebar %}
@@ -53,5 +56,6 @@
     </div>
     {% include 'footer.html' %}
 </div>
+
 </body>
 </html>
