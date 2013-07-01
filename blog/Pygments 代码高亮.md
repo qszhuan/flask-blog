@@ -1,6 +1,6 @@
 ##Pygments 代码高亮  
 Category: python  
-Tags: python, pygments, markdown
+Tags: python, pygments, markdown   
 Date: 2013-04-26
 
 
